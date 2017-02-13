@@ -1,0 +1,27 @@
+{
+  "name": "Novlet",
+  "version": "0.0.1",
+  "description": "A service to help reading novels from the web",
+  "main": "index.js",
+  "scripts": {
+    "test": "testit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moadh/novlet"
+  },
+  "keywords": [
+    "novel",
+    "readability"
+  ],
+  "author": "moadh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moadh/novlet/issues"
+  },
+  "homepage": "https://github.com/moadh/novlet",
+  "dependencies": {
+    "restify": "^4.3.0",
+    "restify-errors": "^4.3.0"
+  }
+}
