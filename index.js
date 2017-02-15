@@ -35,3 +35,35 @@ global.server = restify.createServer({
     version : config.version,
     log     : bunyanWinston.createAdapter(log),
 })
+
+/**
+ * Middleware
+ */
+server.use(restify.jsonBodyParser({ mapParams: true }))
+server.use(restify.acceptParser(server.acceptable))
+server.use(restify.queryParser({ mapParams: true }))
+server.use(restify.fullResponse())
+
+/**
+ * Error Handling
+ */
+server.on('uncaughtException', (req, res, route, err) => {
+    log.error(err.stack)
+    res.send(err)
+});
+
+/**
+ * Lift Server, Connect to DB & Bind Routes
+ */
+server.listen(config.port, function() {
+
+	log.info(
+            '%s v%s ready to accept connections on port %s in %s environment.',
+            server.name,
+            config.version,
+            config.port,
+            config.env
+        )
+	//require('./routes')
+
+})
